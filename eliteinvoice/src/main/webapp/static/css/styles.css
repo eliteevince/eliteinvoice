@@ -1,0 +1,59 @@
+.table-responsive .footer {
+	position: absolute;
+	width: 100%;
+	bottom: 0 !important;
+	padding: 7px 0 2px 0;  
+}
+.table-responsive .header {
+	position: absolute !important;
+	padding: 10px 0 0 0;
+	width: 100%;
+}
+.table-responsive .wrapper {
+	position: absolute !important;
+    top: 50px;
+	bottom: 30px;
+	width: 100%;
+}
+.trBackground {
+	background-color: #E8E8E8 !important;
+}
+
+.table .icon {
+	width: 1px;
+}
+.table .header-checkbox {
+	width : 1px;
+}
+.btndelete {
+	margin-left: 7px;
+}
+
+i.fa-edit:hover, i.fa-search-plus:hover {
+     transform:scale(1.25);
+}
+.fa.fa-edit {
+  font-size: 14px;
+  width: 30px;
+  margin: 0;
+  display: inline-block;
+  text-align: center;
+}
+
+
+table.dataTable thead > tr > th {
+	padding-left: 9px;
+}
+
+.dataTables_filter span,.dataTables_filter label {
+	margin: 5px 0px 5px -28px;	
+}
+
+
+/*  table.table tbody tr:nth-child(even) chk:checked  td{
+    background-color: #ccc !important;
+}
+ 
+table.table tbody tr:nth-child(odd) chk:checked td {
+    background-color: blue !important;
+}  */

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
+ 
+    <!-- To import resources -->
+ 	<import resource="classpath:/datasource-context.xml"/>
+ 	
+ 	<!-- To scan controller package -->
+	<context:component-scan base-package="com.eliteinvoice.web.controller"/>
+	
+	<!-- MVC Configuration : to allow @Controller, static folder access -->
+	<mvc:annotation-driven/>
+	<mvc:resources mapping="/static/**" location="/static/"/>
+		
+	<!-- view resolver -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+
+	<!-- Localization & Internationalization and cookie handing  -->
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+        <property name="defaultLocale" value="en"/>
+        <property name="cookieName" value="languageCookie"/>
+        <property name="cookieMaxAge" value="3600"/>
+    </bean>
+
+	<!-- Register the language.properties -->
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/languages/language"/>
+	</bean>
+
+	<!-- To set Session Variable for Language -->
+	<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<property name="paramName" value="language"/>
+	</bean>
+	<bean id="handlerMapping" class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<ref bean="localeChangeInterceptor"/>
+		</property>
+	</bean>
+	
+	<!-- Velocity Engine Configuration -->
+	<bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="resourceLoaderPath" value="/WEB-INF/views/vm"/>
+	</bean>
+</beans>

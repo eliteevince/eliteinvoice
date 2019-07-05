@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="eliteinvoicePU" transaction-type="RESOURCE_LOCAL">
+		<class>com.eliteinvoice.core.model.Company</class>
+		<class>com.eliteinvoice.core.model.Customer</class>
+		<class>com.eliteinvoice.core.model.Invoice</class>
+		<class>com.eliteinvoice.core.model.InvoiceStatus</class>
+		<class>com.eliteinvoice.core.model.InvoiceType</class>
+		<class>com.eliteinvoice.core.model.Product</class>
+		<class>com.eliteinvoice.core.model.Role</class>
+		<class>com.eliteinvoice.core.model.Taxrate</class>
+		<class>com.eliteinvoice.core.model.Taxratetype</class>
+		<class>com.eliteinvoice.core.model.User</class>
+		<class>com.eliteinvoice.core.model.InvoiceItem</class>
+	</persistence-unit>
+</persistence>
